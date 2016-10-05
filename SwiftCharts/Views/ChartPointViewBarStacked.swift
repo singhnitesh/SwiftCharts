@@ -25,11 +25,13 @@ public class ChartPointViewBarStacked: ChartPointViewBar {
     
     override public func drawRect(rect: CGRect) {
         
-        let context = UIGraphicsGetCurrentContext()
-        
-        for stackFrame in self.stackFrames {
-            CGContextSetFillColorWithColor(context, stackFrame.color.CGColor)
-            CGContextFillRect(context, stackFrame.rect)
+        if let context = UIGraphicsGetCurrentContext() {
+            
+            for stackFrame in self.stackFrames {
+                CGContextSetFillColorWithColor(context, stackFrame.color.CGColor)
+                CGContextFillRect(context, stackFrame.rect)
+            }
         }
+        
     }
 }
